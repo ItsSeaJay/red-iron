@@ -20,7 +20,7 @@
       }
       catch (PDOException $exception)
       {
-        echo 'Database connection: ' . $exception->getMessage();
+        echo 'Database connection failed: ' . $exception->getMessage();
       }
     }
 

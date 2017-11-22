@@ -20,6 +20,6 @@
       }
     ?>
     <p>If you can see data in the above field, then Red Iron is working correctly!</p>
-    <p>If not, check that your server has the latest version of PHP installed, and that the data in your configuration file is valid.</p>
+    <p>If not, check that your server has the latest version of PHP installed, and that the data in your <code>credentials.php</code> file is valid.</p>
   </body>
 </html>
