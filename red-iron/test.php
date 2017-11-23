@@ -33,6 +33,7 @@
         {
           echo '<div id="success">';
           echo $row->id;
+          echo '</div>';
         }
 
         // Prevent multiple records from being added when the script is re-run
@@ -40,8 +41,10 @@
         $database->prepared_statement($query, array());
       ?>
       <p>
-        If you can see data in the above field, then Red Iron is working correctly! <br>
-        If not, check that your server has the latest version of PHP installed, and that the data in your <code>credentials.php</code> file is valid. <br>
+        If you can see the meaning of life, the universe, and everything in the above field, then Red Iron is working correctly! If not, something's probably gone wrong. Check that your server has the latest version of PHP installed, and that the data in your <code>credentials.php</code> file is valid.
+      </p>
+      <p>
+        If you're a regular user and don't know what this means, don't panic! You haven't broken anything. Just take a few steps back and everything should sort itself out.
       </p>
     </div>
   </body>

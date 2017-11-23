@@ -1,5 +1,5 @@
 # Project: Red-Iron
-## A Database Helper for MySQL and MariaDB written in PHP, using PDO
+A Database Helper for MySQL and MariaDB written in PHP, using PDO
 # Installation
 1. Drop the `source` folder into an appropriate space within your project
 2. Alter the values in `credentials.php` to fit your database installation
