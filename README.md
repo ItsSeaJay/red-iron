@@ -29,7 +29,7 @@ For security reasons, Red Iron only deals with prepared statements; not raw quer
   $query = "SELECT * FROM test WHERE id = ?";
   $statement = $database->prepared_statement($query, array(42));
 ```
-This will return the results statement of the query `$query`. You can then fetch the data from there using `$statement->fetchObject()` and so-on, as you might with raw PDO.
+This will return the resulting statement of the query `$query`. You can then fetch the data from there using `$statement->fetchObject()` and so-on, as you might with raw PDO.
 
 
 # License
