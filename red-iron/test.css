@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+body,
+html
+{
+  margin: 0;
+  padding: 0;
+  background-color: #FAFAFA;
+  font-family: 'Open Sans', 'Arial', sans-serif;
+}
+
+code
+{
+
+}
+
+#success
+{
+  color: red;
+  font-size: 128pt;
+  text-align: center;
+}
+
+.container
+{
+  margin: auto;
+  margin: auto;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  padding: 32px;
+  width: 66.66%;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(51,51,51,0.16);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(51,51,51,0.16);
+  box-shadow: 10px 10px 5px 0px rgba(51,51,51,0.16);
+}

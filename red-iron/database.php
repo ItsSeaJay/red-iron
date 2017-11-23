@@ -29,10 +29,10 @@
       try
       {
         $this->PDO = new PDO(
-            $this->header,
-            $credentials['username'],
-            $credentials['password']
-          );
+          $this->header,
+          $credentials['username'],
+          $credentials['password']
+        );
         return true;
       }
       catch (PDOException $exception)
@@ -45,6 +45,24 @@
     private function disconnect()
     {
       $PDO = null;
+    }
+
+    public function prepared_statement($query, array $parameters)
+    {
+      $query = filter_var($query, FILTER_SANITIZE_STRING);
+
+      try
+      {
+        $statement = $this->PDO->prepare($query);
+        $statement->execute($parameters);
+      }
+      catch (PDOException $exception)
+      {
+        echo 'Prepared statement failed: ' . $exception->getMessage();
+        exit();
+      }
+
+      return $statement;
     }
 
     private function update_header(array $credentials)
@@ -61,5 +79,8 @@
     }
   }
 
-  $database = new Database($credentials);
+  if (!isset($database))
+  {
+    $database = new Database($credentials);
+  }
 ?>
