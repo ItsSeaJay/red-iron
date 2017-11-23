@@ -1,4 +1,5 @@
 <?php
+  // Remember to change this path to be outside of the root directory!
   require_once 'credentials.php';
 
   class Database
@@ -16,18 +17,22 @@
     {
       if ($this->connect($credentials))
       {
-        updateCredentials();
-        updateHeader($credentials);
+        $this->update_header($credentials);
+        $this->update_header($credentials);
       }
     }
 
     private function connect(array $credentials)
     {
-      updateHeader($credentials);
+      $this->update_header($credentials);
 
       try
       {
-        $this->PDO = new PDO($header, $username, $password);
+        $this->PDO = new PDO(
+            $this->header,
+            $credentials['username'],
+            $credentials['password']
+          );
         return true;
       }
       catch (PDOException $exception)
@@ -42,21 +47,12 @@
       $PDO = null;
     }
 
-    public function getPDO()
+    private function update_header(array $credentials)
     {
-      return $this->PDO;
+      $this->header = 'mysql:host=' . $credentials['host'] .     ';dbname=' . $credentials['dbname'] . ';';
     }
 
-    private function updateHeader(array $credentials)
-    {
-      $this->header = filter_var(
-        'mysql:host=' . $credentials['host'] .
-        'dbname=' . $credentials['dbname'] . ';',
-        FILTER_SANITIZE_STRING
-      );
-    }
-
-    private function updateCredentials(array $credentials)
+    private function update_credentials(array $credentials)
     {
       $this->credentials['host'] = $credentials['host'];
       $this->credentials['dbname'] = $credentials['dbname'];
