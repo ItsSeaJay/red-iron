@@ -18,7 +18,6 @@
       if ($this->connect($credentials))
       {
         $this->update_header($credentials);
-        $this->update_header($credentials);
       }
     }
 
@@ -49,8 +48,6 @@
 
     public function prepared_statement($query, array $parameters)
     {
-      $query = filter_var($query, FILTER_SANITIZE_STRING);
-
       try
       {
         $statement = $this->PDO->prepare($query);
@@ -67,7 +64,11 @@
 
     private function update_header(array $credentials)
     {
-      $this->header = 'mysql:host=' . $credentials['host'] .     ';dbname=' . $credentials['dbname'] . ';';
+      $this->header = 'mysql:host=' .
+        $credentials['host'] .
+        ';dbname=' .
+        $credentials['dbname'] .
+        ';';
     }
 
     private function update_credentials(array $credentials)
